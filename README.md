@@ -95,5 +95,5 @@
 4. 课程代码通常显示在课程名称旁边
 
 ### 界面预览
-![选课系统界面](image/interface_preview.png)
+![选课系统界面](https://raw.githubusercontent.com/fengzer/xjtu-course-helper/main/image/interface_preview.png)
 
