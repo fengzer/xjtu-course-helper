@@ -6,6 +6,7 @@ from course_selection import *
 import threading
 import time
 import datetime
+import os
 
 class CourseSelectionUI:
     def __init__(self, root, course_client, user_name):
@@ -251,11 +252,40 @@ class CourseSelectionUI:
         self.window.after(1000, self.update_online_users)
 
     def load_config(self):
-        """读取配置文件"""
+        """读取配置文件，如果不存在则创建默认配置"""
         try:
             import yaml
-            with open('config.yaml', 'r', encoding='utf-8') as f:
+            config_path = 'config.yaml'
+            
+            # 如果配置文件不存在，创建默认配置
+            if not os.path.exists(config_path):
+                default_config = {
+                    'username': '',  # 默认空用户名
+                    'password': '',  # 默认空密码
+                    'courses': [
+                        {'code': 'COMP30072701', 'type': 'major'},     # 计算机组成原理
+                        {'code': 'CORE10010101', 'type': 'elective'},  # 大学英语
+                        {'code': 'PHED10265003', 'type': 'physical'},  # 篮球
+                        {'code': 'AUTO50112701', 'type': 'program'}    # 自动控制原理
+                    ]
+                }
+                
+                # 写入默认配置
+                with open(config_path, 'w', encoding='utf-8') as f:
+                    yaml.dump(default_config, f, allow_unicode=True, sort_keys=False)
+                
+                # 提示用户
+                messagebox.showinfo(
+                    "提示", 
+                    "已创建默认配置文件 config.yaml\n请在文件中填写你的账号信息"
+                )
+                
+                return default_config
+                
+            # 读取现有配置
+            with open(config_path, 'r', encoding='utf-8') as f:
                 return yaml.safe_load(f)
+                
         except Exception as e:
             print(f"读取配置文件失败：{str(e)}")
             return {}
@@ -383,11 +413,40 @@ class LoginUI:
         self.root.mainloop()
 
     def load_config(self):
-        """读取配置文件"""
+        """读取配置文件，如果不存在则创建默认配置"""
         try:
             import yaml
-            with open('config.yaml', 'r', encoding='utf-8') as f:
+            config_path = 'config.yaml'
+            
+            # 如果配置文件不存在，创建默认配置
+            if not os.path.exists(config_path):
+                default_config = {
+                    'username': '',  # 默认空用户名
+                    'password': '',  # 默认空密码
+                    'courses': [
+                        {'code': 'COMP30072701', 'type': 'major'},     # 计算机组成原理
+                        {'code': 'CORE10010101', 'type': 'elective'},  # 大学英语
+                        {'code': 'PHED10265003', 'type': 'physical'},  # 篮球
+                        {'code': 'AUTO50112701', 'type': 'program'}    # 自动控制原理
+                    ]
+                }
+                
+                # 写入默认配置
+                with open(config_path, 'w', encoding='utf-8') as f:
+                    yaml.dump(default_config, f, allow_unicode=True, sort_keys=False)
+                
+                # 提示用户
+                messagebox.showinfo(
+                    "提示", 
+                    "已创建默认配置文件 config.yaml\n请在文件中填写你的账号信息"
+                )
+                
+                return default_config
+                
+            # 读取现有配置
+            with open(config_path, 'r', encoding='utf-8') as f:
                 return yaml.safe_load(f)
+                
         except Exception as e:
             print(f"读取配置文件失败：{str(e)}")
             return {}
