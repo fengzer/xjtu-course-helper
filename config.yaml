@@ -1,0 +1,11 @@
+username: "2214310040" # 你的学号
+password: "jiangxuan1" # 你的密码
+courses:
+  - code: "COMP30072701" # 课程代码
+    type: "major" # 主修课
+  - code: "CORE10010101"
+    type: "elective" # 选修课
+  - code: "PHED10265003"
+    type: "physical" # 体育课
+  - code: "AUTO50112701"
+    type: "program" # 方案内
