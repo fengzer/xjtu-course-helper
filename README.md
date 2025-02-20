@@ -94,6 +94,4 @@
 3. 找到想要选择的课程
 4. 课程代码通常显示在课程名称旁边
 
-### 界面预览
-![选课系统界面](https://github.com/fengzer/xjtu-course-helper/blob/main/image/interface_preview.png)
 
