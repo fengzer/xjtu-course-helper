@@ -1,5 +1,5 @@
-username: "2214310040" # 你的学号
-password: "jiangxuan1" # 你的密码
+username: "" # 你的学号
+password: "" # 你的密码
 courses:
   - code: "COMP30072701" # 课程代码
     type: "major" # 主修课
